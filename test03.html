@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12‑Week Image Carousel</title>
+    <link rel="stylesheet" href="../lifeinauz/style/S-theme.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .week-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+        }
+
+        .week-btn {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .week-btn:hover {
+            background: #555;
+        }
+
+        .carousel-container {
+            display: none;
+            background: #111;
+            padding: 40px 0;
+            justify-content: center;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px;
+        }
+
+        .frame {
+            width: 200px;
+            height: 120px;
+            background: black;
+            border: 8px solid #222;
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            flex: 0 0 auto;
+            cursor: pointer;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .frame::before,
+        .frame::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            background: repeating-linear-gradient(to right, #000 0px, #000 6px, #555 6px, #555 12px);
+            left: 0;
+        }
+
+        .frame::before {
+            top: -20px;
+        }
+
+        .frame::after {
+            bottom: -20px;
+        }
+
+        #textPanel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            padding: 30px 0;
+            z-index: 9999;
+        }
+
+        #panelContentWrapper {
+            width: 80%;
+            max-width: 900px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        #panelImage {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        #panelText {
+            padding: 20px;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        #panelText h2 {
+            margin-top: 0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            z-index: 10000;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>How I built the website</h1>
+    </header>
+    <div class="week-nav">
+        <button class="week-btn" onclick="openWeek(1)">Week 1</button>
+        <button class="week-btn" onclick="openWeek(2)">Week 2</button>
+        <button class="week-btn" onclick="openWeek(3)">Week 3</button>
+        <button class="week-btn" onclick="openWeek(4)">Week 4</button>
+        <button class="week-btn" onclick="openWeek(5)">Week 5</button>
+        <button class="week-btn" onclick="openWeek(6)">Week 6</button>
+        <button class="week-btn" onclick="openWeek(7)">Week 7</button>
+        <button class="week-btn" onclick="openWeek(8)">Week 8</button>
+        <button class="week-btn" onclick="openWeek(9)">Week 9</button>
+        <button class="week-btn" onclick="openWeek(10)">Week 10</button>
+        <button class="week-btn" onclick="openWeek(11)">Week 11</button>
+        <button class="week-btn" onclick="openWeek(12)">Week 12</button>
+    </div>
+    <div id="carousels">
+        <!--Week 1-->
+        <div id="week1" class="carousel-container">
+            <div class="carousel">
+                <div class="frame" data-title="Original Idea"
+                    data-desc="The orginal idea was to make a book in parallel of this website because i find the physicality of art so important and key to my making it. I had in mind one of those interactive books that you usually get as a child. I didn't end up doing one as it was a little too time consuming and i could not figure out how to make it fun and interactive. I have not completely given up on the idea, though I am more turning towards the idea of making my own monthly 'zine'. This - and the next few images - are my brainstorming ideas for that book."
+                    data-src="../lifeinauz/pics/chrono/week1/book.png"><img
+                        src="../lifeinauz/pics/chrono/week1/book.png"></div>
+                <div class="frame" data-title="Original Idea .2" data-desc=""
+                    data-src="../lifeinauz/pics/chrono/week1/book1.png"><img
+                        src="../lifeinauz/pics/chrono/week1/book1.png"></div>
+                <div class="frame" data-title="Original Idea .3"
+                    data-desc="This was my idea for the part about music, as I have been learning the guitar for the past 5 months. The idea was to put strings and be able to hold the book, like one holds a guitar to have fun with trying out finger shapes."
+                    data-src="../lifeinauz/pics/chrono/week1/book2.png"><img
+                        src="../lifeinauz/pics/chrono/week1/book2.png"></div>
+                <div class="frame" data-title="Original Idea .4" data-desc=""
+                    data-src="../lifeinauz/pics/chrono/week1/book3.png"><img
+                        src="../lifeinauz/pics/chrono/week1/book3.png"></div>
+                <div class="frame" data-title="brainstorming"
+                    data-desc="This was the original brainstorming paper where I tried to figure out what sort of things I would want my website to show."
+                    data-src="../lifeinauz/pics/chrono/week1/brainsto.png"><img
+                        src="../lifeinauz/pics/chrono/week1/brainsto.png"></div>
+                <div class="frame" data-title="Homepage Ideas .1"
+                    data-desc='This was the original idea of a rolling image with interaction similar to this website: <a href="https://www.thesememorieswontlast.com/" target="_blank">https://www.thesememorieswontlast.com/</a>'
+                    data-src="../lifeinauz/pics/chrono/week1/homepageidea1.png">
+                    <img src="../lifeinauz/pics/chrono/week1/homepageidea1.png">
+                </div>
+
+                <div class="frame" data-title="Homepage Ideas .2"
+                    data-desc="This was another idea which ended up being closer to what I actually made."
+                    data-src="../lifeinauz/pics/chrono/week1/homepage.1.png"><img
+                        src="../lifeinauz/pics/chrono/week1/homepage.1.png"></div>
+                <div class="frame" data-title="Final Homepage" data-desc="This is the one I ended up settling on"
+                    data-src="../lifeinauz/pics/chrono/week1/finalidea.png"><img
+                        src="../lifeinauz/pics/chrono/week1/finalidea.png"></div>
+            </div>
+        </div>
+        <!--Week 2-->
+        <div id="week2" class="carousel-container">
+            <div class="carousel">
+                <div class="frame" data-title="Implementation Plan" data-desc="PDF of my implementation plan"
+                    data-src=../lifeinauz/pics/chrono/week2/Implementation-plan.pdf" data-type="pdf">
+                </div>
+                <div class="frame" data-title="" data-desc="This was the issues I looked to overcome."
+                    data-src="../lifeinauz/pics/chrono/week2/problemfix.png"><img
+                        src="../lifeinauz/pics/chrono/week2/problemfix.png"></div>
+                <div class="frame" data-title=""
+                    data-desc="This was my first draft idea for the 'cooking' page of the website, that I only implemented much later."
+                    data-src="../lifeinauz/pics/chrono/week2/cookidea.png"><img
+                        src="../lifeinauz/pics/chrono/week2/cookidea.png"></div>
+            </div>
+        </div>
+        <!--Week 3-->
+        <div id="week3" class="carousel-container">
+            <div class="carousel">
+                <div class="frame" data-title="Poetry"
+                    data-desc='<a href="../lifeinauz/poetry.html" target="_blank">My Poetry Page</a>  <br> The first page I did was the poetry page. There were several steps into making it which I go further into.'
+                    data-src="../lifeinauz/pics/chrono/week3/Poetry.png"><img
+                        src="../lifeinauz/pics/chrono/week3/Poetry.png"></div>
+                <div class="frame" data-title="Background"
+                    data-desc="This is the background I drew with 'Procreat Pocket' on my phone. The aim was to create a drawn background that would be a reminder of my school workbooks because that's where I wrote most of my poetry throughout highschool. The little drawings in the margin are my 'go to' doodles. The aim is to implement them in other pages."
+                    data-src="../lifeinauz/pics/poetry_background.png"><img
+                        src="../lifeinauz/pics/poetry_background.png"></div>
+                <div class="frame" data-title="Fonts"
+                    data-desc="Because writing with pen and paper is important to me and to my creative process I wanted my poetry page to have that same vibe. That meant having a proper handwritten font, which after several attempts (see above) I managed to find correct. The goal was to find a balance between handwritten and not impossible to read. Which is not as easy as it seems, a lot goes into the making of the font. First you draw the letters and then have to figure out what the best spacing between letters and words is."
+                    data-src="../lifeinauz/pics/chrono/week3/fonts-test.png"><img
+                        src="../lifeinauz/pics/chrono/week3/font.png"></div>
+            </div>
+            <div class="frame" data-title="'My Poem' Rubric"
+                data-desc="I stumbled upon this scheme of writing on Pinterest a coupld of years ago and ever since this is the way I write when I'm unispired on don't feel like I have anything to say. I think starting with a structure helps tremendously to overcome the fear of the unknown that writing poetry can be. I also like the idea of having a little activity on the website and for it to be a journal that people can sign. Because the website only really exist locally - for now - it doesn't have a backend which means that the gallery is obsolete however I still like to show that ideally this is what it is."
+                data-src="../lifeinauz/pics/chrono/week3/MYPOEMRB.png"><img
+                    src="../lifeinauz/pics/chrono/week3/MYPOEMRB.png"></div>
+            <div class="frame" data-title="Map"
+                data-desc="After figuring out how to export images without a background - they just have to be PNG - I created a map to place my poetry depending on where I was. Funnily enough hte location doesn't mean that the poetry will be in English or in French. Especially these past few months where I have been writing and reading mostly in French because I realised it was easier because I have more vocabulary - and despite everything - French is in fact quite a nice language and its complexities are also something you can play with. 
+                <br> 
+                <br> I am not completely satisfied with how the crosses look and how the poems show but I couldn't figure out a better way while also working on the other pages. It is something I will circle back to later on. "
+                data-src="../lifeinauz/pics/chrono/week3/map.png"><img src="../lifeinauz/pics/chrono/week3/map.png">
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <button id="closeBtn" class="close-btn" onclick="closeCarousels()">Close</button>
+    <div id="textPanel">
+        <div id="panelContentWrapper">
+            <div class="arrow arrow-left" id="prevArrow">&#10094;</div>
+            <img id="panelImage" src="" alt="Expanded Image">
+            <iframe id="panelPDF" style="display:none; width:100%; height:80vh; border:none;"></iframe>
+            <div class="arrow arrow-right" id="nextArrow">&#10095;</div>
+            <div id="panelText">
+                <h2 id="panelTitle"></h2>
+                <p id="panelDesc"></p>
+                <button onclick="closeTextPanel()"
+                    style="margin-top:20px; padding:10px 20px; background:#333; color:white; border:none; border-radius:4px; cursor:pointer;">Close</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentFrames = [];
+        let currentIndex = 0;
+        function openWeek(weekNumber) {
+            document.querySelectorAll('.carousel-container').forEach(car => car.style.display = 'none');
+            const container = document.getElementById(`week${weekNumber}`);
+            container.style.display = 'flex';
+            document.getElementById('closeBtn').style.display = 'block';
+            currentFrames = Array.from(container.querySelectorAll('.frame'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function closeCarousels() {
+            document.querySelectorAll('.carousel-container').forEach(car => car.style.display = 'none');
+            document.getElementById('closeBtn').style.display = 'none';
+        }
+        function openTextPanel(title, desc, src) {
+            const isPDF = src.toLowerCase().endsWith(".pdf");
+
+            document.getElementById('panelTitle').innerText = title;
+            document.getElementById('panelDesc').innerHTML = desc;
+
+            const img = document.getElementById('panelImage');
+            const pdf = document.getElementById('panelPDF');
+
+            if (isPDF) {
+                img.style.display = "none";
+                pdf.style.display = "block";
+                pdf.src = src;
+            } else {
+                pdf.style.display = "none";
+                img.style.display = "block";
+                img.src = src;
+            }
+
+            document.getElementById('textPanel').style.display = 'flex';
+            document.getElementById('textPanel').scrollTop = 0;
+        }
+
+        function closeTextPanel() {
+            document.getElementById('textPanel').style.display = 'none';
+        }
+        document.addEventListener('click', function (e) {
+            const frame = e.target.closest('.frame');
+            if (frame && frame.dataset.src) {
+                currentIndex = currentFrames.indexOf(frame);
+                openTextPanel(frame.dataset.title, frame.dataset.desc, frame.dataset.src);
+            }
+        });
+        document.getElementById('prevArrow').addEventListener('click', function () {
+            if (currentFrames.length === 0) return;
+            currentIndex = (currentIndex - 1 + currentFrames.length) % currentFrames.length;
+            const frame = currentFrames[currentIndex];
+            openTextPanel(frame.dataset.title, frame.dataset.desc, frame.dataset.src);
+        });
+        document.getElementById('nextArrow').addEventListener('click', function () {
+            if (currentFrames.length === 0) return;
+            currentIndex = (currentIndex + 1) % currentFrames.length;
+            const frame = currentFrames[currentIndex];
+            openTextPanel(frame.dataset.title, frame.dataset.desc, frame.dataset.src);
+        });
+
+    </script>
+</body>
+
+
+</html>
