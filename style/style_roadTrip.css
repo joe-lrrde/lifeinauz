@@ -1,0 +1,239 @@
+#playlistIMG {
+    object-fit: cover;
+    width: 350px;
+    height: auto;
+    transform: scale(1.2);
+    border: 10px solid rgb(255, 255, 255);
+    border-radius: 25%;
+    align-self: center;
+    display: flex;
+    z-index: 9999;
+}
+
+#img-container {
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    align-items: center;
+    /* vertical center */
+    margin-top: 100px;
+}
+
+body {
+    background-color: #98eeff;
+}
+
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a img.icon {
+    display: inline-block;
+    height: 1em;
+    margin: 0 0 -0.1em 0.3em;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.out-top {
+    animation: rotate 20s linear infinite;
+    transform-origin: 13px 25px;
+}
+
+.in-top {
+    animation: rotate 10s linear infinite;
+    transform-origin: 13px 25px;
+}
+
+.out-bottom {
+    animation: rotate 25s linear infinite;
+    transform-origin: 84px 93px;
+}
+
+.in-bottom {
+    animation: rotate 15s linear infinite;
+    transform-origin: 84px 93px;
+}
+
+h1 {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* pull back by half its size */
+    z-index: 9999;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+#playlist-back {
+    position: relative;
+    /* creates a local stacking context */
+    width: 950px;
+    padding: 40px;
+    background-color: rgba(255, 241, 241, 0.895);
+    text-align: left;
+    border-radius: 10px;
+    top: 150px;
+    left: 200px;
+}
+
+@font-face {
+    font-family: Changa;
+    src: url(../fonts/Changa-VariableFont_wght.ttf);
+}
+
+.zicTitle {
+    font-family: Changa;
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+}
+
+.zicos {
+    font-family: Changa;
+    font-weight: 200;
+    font-size: 15px;
+    margin-top: 1px;
+    padding-top: 1px;
+}
+
+.icons {
+    margin-bottom: 110px;
+}
+
+#search {
+    position: absolute;
+    width: 70px;
+    margin-left: 30px;
+}
+
+#search:hover {
+    width: 80px;
+}
+
+#share {
+    position: absolute;
+    width: 70px;
+    margin-left: 100px;
+}
+
+#share:hover {
+    width: 80px;
+}
+
+#download {
+    position: absolute;
+    width: 90px;
+    margin-left: 170px;
+}
+
+#download:hover {
+    width: 100px
+}
+
+#shuffle {
+    position: absolute;
+    width: 85px;
+    margin-left: 800px;
+    margin-top: 6px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.input {
+    width: 800px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding: 18px 16px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+.input::placeholder {
+    color: transparent;
+}
+
+.input:focus::placeholder {
+    color: rgb(131, 128, 128);
+}
+
+.input.expanded {
+    background-color: none;
+    width: 100px;
+    cursor: text;
+    padding: 18px 16px 18px 45px;
+}
+
+.icon-img {
+    position: absolute;
+    width: 60px;
+    margin-left: 30px;
+    background-color: none;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+/* When expanded, remove bg/border */
+.input.expanded+.icon-img {
+    background-color: transparent;
+    border: none;
+}
+
+/* Click animation */
+.icon-img.active {
+    transform: rotate(90deg) scale(1.1);
+}
+
+#resetSearch {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #eee;
+    cursor: pointer;
+}
+
+#resetSearch:hover {
+    background: #ddd;
+}

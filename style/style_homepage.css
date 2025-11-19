@@ -1,0 +1,261 @@
+/*OVERALL*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --w: 360px;
+  /* change width as needed */
+  --h: 240px;
+  /* change height as needed */
+  --duration: 200ms;
+  /* transition speed */
+  --easing: cubic-bezier(.2, .6, .2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  background: #181818;
+}
+
+.card {
+  width: var(--w);
+  height: var(--h);
+  position: relative;
+  overflow: visible;
+  outline: none;
+  padding: none;
+  margin: none;
+}
+
+#RP {
+  cursor: url("../pics/cursor/map.png"), auto;
+}
+
+/* Base image styles */
+.card img {
+  position: absolute;
+  inset: 0;
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  transform: scale(1.001);
+  /* avoid subpixel gaps */
+  transition: opacity var(--duration) var(--easing),
+    transform var(--duration) var(--easing),
+    filter var(--duration) var(--easing);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Image A (default/visible) */
+.img-a {
+  opacity: 1;
+}
+
+/* Image B (revealed on hover) */
+.img-b {
+  opacity: 0;
+  transform: scale(1.10);
+}
+
+/* Hover / focus / touch-active states */
+.card:hover .img-b,
+.card:focus-visible .img-b,
+.card.touch .img-b {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card:hover .img-a,
+.card:focus-visible .img-a,
+.card.touch .img-a {
+  opacity: 0;
+  filter: blur(1px);
+}
+
+
+.card:hover .caption,
+.card:focus-visible .caption,
+.card.touch .caption {
+  transform: translateY(-2px);
+  opacity: .95;
+}
+
+.image-row {
+  display: flex;
+  /* put children in a row */
+  justify-content: center;
+  /* center them horizontally */
+  align-items: center;
+  /* align vertically if heights differ */
+  gap: 40px;
+  /* space between images */
+  margin-top: 150px;
+  margin-bottom: 400px;
+}
+
+#RP,
+#TT,
+#B {
+  margin: 0;
+  /* remove old margin-left hacks */
+}
+
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.particle {
+  position: absolute;
+  background: #fffdf1;
+  border-radius: 50%;
+  opacity: 0.9;
+  will-change: transform, opacity;
+  transition: transform 2s ease-out, opacity 2s ease-out;
+}
+
+.card #bin {
+  position: absolute;
+  bottom: 140px;
+  left: 100%;
+  transform: translateX(-50%);
+  background: rgba(255, 230, 189, 0.7);
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 150px;
+  opacity: 0;
+  pointer-events: none;
+  /* avoids blocking hover */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover #bin {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+  /* little lift */
+}
+
+.card #bob {
+  position: absolute;
+  bottom: 140px;
+  left: 100%;
+  transform: translateX(-50%);
+  background: rgba(153, 231, 255, 0.82);
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 150px;
+  opacity: 0;
+  pointer-events: none;
+  /* avoids blocking hover */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover #bob {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+  /* little lift */
+}
+
+.card #beau {
+  position: absolute;
+  bottom: 140px;
+  left: 100%;
+  transform: translateX(-50%);
+  background: rgba(255, 153, 253, 0.82);
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 150px;
+  opacity: 0;
+  pointer-events: none;
+  /* avoids blocking hover */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover #beau {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+  /* little lift */
+}
+
+@font-face {
+  font-family: Boogaloo;
+  src: url(../fonts/Boogaloo-Regular.ttf);
+}
+
+.intro {
+  text-align: center;
+  font-family: Boogaloo;
+}
+
+h1 {
+  color: #fffdf1;
+  display: block;
+  margin-top: 100px;
+  font-size: 200px;
+}
+
+h1:hover {
+  background: linear-gradient(270deg, rgb(255, 198, 106), rgb(255, 248, 153), rgb(153, 255, 158), rgb(153, 231, 255), rgb(172, 153, 255), rgb(255, 177, 254), rgb(255, 108, 108));
+  background-size: 1400% 1400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 10s ease infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h2 {
+  color: #fffdf1;
+  font-size: 70px;
+  margin-bottom: 5px;
+}
+
+h2:hover {
+  color: #c9321a;
+  font-size: 75px;
+  animation: blinker 1.6s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+    /* invisible halfway through */
+  }
+}
+
+p {
+  font-family: Boogaloo;
+}

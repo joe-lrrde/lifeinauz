@@ -1,0 +1,177 @@
+.story-script-regular {
+    font-family: "Story Script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.asimovian-regular {
+    font-family: "Asimovian", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(248, 233, 212);
+}
+
+.recipes {
+    background: rgb(206, 213, 158);
+
+}
+
+h1 {
+    font-family: Asimovian;
+    display: inline-block;
+    font-size: 160px;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    -webkit-text-stroke: 1px rgba(209, 130, 34, 0.876);
+}
+
+h2 {
+    font-family: Asimovian;
+    display: block;
+    font-size: 60px;
+    margin-left: 5%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    text-decoration-line: underline;
+}
+
+.recipes h1 {
+    font-family: Asimovian;
+    display: inline-block;
+    font-size: 95px;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    -webkit-text-stroke: 1px rgba(209, 130, 34, 0.876);
+}
+
+.recipes h2 {
+    font-family: Asimovian;
+    display: block;
+    font-size: 48px;
+    margin-left: 5%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    text-decoration-line: underline;
+    -webkit-text-stroke: 1px rgba(209, 130, 34, 0.876);
+}
+
+p {
+    font-family: Story Script;
+    font-size: 30px;
+    margin-left: 5%;
+}
+
+#PSA {
+    color: rgb(201, 33, 33);
+    text-align: center;
+    display: inline-block;
+    margin-top: 6%;
+}
+
+.alert {
+    animation: blinker 1.8s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+        /* invisible halfway through */
+    }
+}
+
+li {
+    list-style-type: none;
+}
+
+.recipes img {
+    display: block;
+    width: 300px;
+    margin: 40px auto;
+    /* centers the image */
+    border-radius: 10px;
+    /* soften corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* subtle shadow */
+    object-fit: cover;
+}
+
+.recipe-image-container {
+    width: 350px;
+    padding: 20px 50px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.409);
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+}
+
+.ingredient-list {
+    list-style: none;
+    margin-left: 5%;
+    padding: 0;
+    font-family: Story Script;
+    font-size: 32px;
+}
+
+.ingredient-list li {
+    margin: 12px 0; /* spacing between items */
+}
+
+.ingredient-list label {
+    display: flex;
+    align-items: center; /* align checkbox + text */
+    gap: 12px; /* space between checkbox and text */
+    cursor: pointer;
+}
+
+.ingredient-list input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: rgb(209, 130, 34); /* color of the tick */
+    cursor: pointer;
+}
+
+.separator {
+    border: none;
+    border-top: 3px dashed rgba(209, 130, 34, 0.7);
+    width: 80%;
+    margin: 40px auto;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    color: rgb(209, 130, 34); /* optional highlight */
+    font-weight: bold;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 350px;                  /* smaller tooltip width */
+    font-size: 20px;               /* smaller font */
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 6px 10px;             /* smaller padding */
+    border-radius: 6px;
+    border: 1px dashed rgba(209, 130, 34, 0.7);
+
+    /* Tooltip position above-right */
+    position: absolute;
+    z-index: 10;
+    top: -10px;                     /* start slightly above */
+    left: 105%;                     /* shift to the right of the word */
+    
+    transition: opacity 0.25s ease-in-out, visibility 0.25s;
+    white-space: normal;             /* allow wrapping */
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

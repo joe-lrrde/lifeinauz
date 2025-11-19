@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventure Map</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .viewport {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map {
+      width: 3000px;
+      height: 2000px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top left;
+      transform: scale(0.5);
+      /* Zoom factor */
+    }
+
+    .map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      /* prevent ghost drag */
+      -webkit-user-drag: none;
+      -webkit-user-drag: none;
+    }
+
+    /* 🔴 Markers */
+    .info-marker {
+      width: 250px;
+      height: 270px;
+      border: 2px solid white;
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+      transform: translate(-50%, -50%) scale(1.5);
+      /* scale with map */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .link-marker {
+      width: 250px;
+      height: 270px;
+      border: 2px solid white;
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+      transform: translate(-50%, -50%) scale(1.5);
+      /* scale with map */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 📜 Info popup */
+    .info-box {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-family: sans-serif;
+      display: none;
+      max-width: 300px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="viewport">
+    <div class="map">
+      <img src="../website/pics/theme_background.jpg" alt="background">
+
+      <!-- Pop Up Markers -->
+      <div class="info-marker" style="top: 750px; left: 500px;" data-info="Photozz!"></div>
+      <div class="info-marker" style="top: 1600px; left: 2400px;" data-info="guitarr"></div>
+
+      <!-- Link Markers -->
+      <div class="link-marker" style="top: 1400px; left: 600px;" data-link="../website/poetry.html"></div>
+      <div class="link-marker" style="top: 1200px; left: 1500px;" data-link="../website/cuisine.html"></div>
+      <div class="link-marker" style="top: 1000px; left: 2400px;" data-link="../website/roadtrip.html"></div>
+      <div class="link-marker" style="top: 200px; left: 2400px;" data-link="../website/postcard.html"></div>
+      <div class="link-marker" style="top: 750px; left: 500px;" data-link="../website/photography.html"></div>
+      <div class="link-marker" style="top: 200px; left: 800px;" data-link="../website/gallery.html"></div>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    const map = document.querySelector(".map");
+    const markers = document.querySelectorAll(".info-marker");
+    const infoBox = document.getElementById("infoBox");
+
+    let mapX = 0, mapY = 0;
+    let isDragging = false;
+    let startX, startY;
+
+    const zoom = 1.5; // must match CSS scale
+
+    // ✅ Wheel scroll
+    window.addEventListener("wheel", (e) => {
+      mapX -= e.deltaX;
+      mapY -= e.deltaY;
+      clampAndMove();
+    });
+
+    // ✅ Dragging
+    map.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX - mapX;
+      startY = e.clientY - mapY;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      mapX = e.clientX - startX;
+      mapY = e.clientY - startY;
+      clampAndMove(0.1);
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    // ✅ Keyboard arrows / WASD
+    let keysPressed = {};
+
+    window.addEventListener("keydown", (e) => {
+      keysPressed[e.key] = true;
+    });
+
+    window.addEventListener("keyup", (e) => {
+      keysPressed[e.key] = false;
+    });
+
+    function gameLoop() {
+      const speed = 15; // px per frame
+
+      if (keysPressed["ArrowLeft"] || keysPressed["a"]) mapX += speed;
+      if (keysPressed["ArrowRight"] || keysPressed["d"]) mapX -= speed;
+      if (keysPressed["ArrowUp"] || keysPressed["w"]) mapY += speed;
+      if (keysPressed["ArrowDown"] || keysPressed["s"]) mapY -= speed;
+
+      clampAndMove(0.1);
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+
+    // Info markers
+    document.querySelectorAll(".info-marker").forEach(marker => {
+      marker.addEventListener("click", () => {
+        infoBox.innerText = marker.dataset.info;
+        infoBox.style.display = "block";
+      });
+    });
+
+    // Link markers
+    document.querySelectorAll(".link-marker").forEach(marker => {
+      marker.addEventListener("click", () => {
+        if (marker.dataset.link) {
+          window.open(marker.dataset.link, "_blank"); // open in new tab
+        }
+      });
+    });
+
+
+    // ✅ Clamp inside bounds (account for zoom)
+    function clampAndMove(duration = 0.3) {
+      const scaledWidth = map.offsetWidth * zoom;
+      const scaledHeight = map.offsetHeight * zoom;
+
+      mapX = Math.min(0, Math.max(window.innerWidth - scaledWidth, mapX));
+      mapY = Math.min(0, Math.max(window.innerHeight - scaledHeight, mapY));
+
+      gsap.to(map, { x: mapX, y: mapY, duration, ease: "power2.out" });
+    }
+  </script>
+</body>
+
+</html>

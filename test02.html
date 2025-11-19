@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12‑Week Carousel Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .week-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+        }
+
+        .week-btn {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .week-btn:hover {
+            background: #555;
+        }
+
+        .carousel-container {
+            display: none;
+            background: #111;
+            padding: 40px 0;
+            justify-content: center;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px;
+        }
+
+        /* Film negative aesthetic */
+        .frame {
+            width: 200px;
+            height: 120px;
+            background: black;
+            border: 8px solid #222;
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            flex: 0 0 auto;
+        }
+
+        .frame::before,
+        .frame::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            background: repeating-linear-gradient(to right,
+                    #000 0px,
+                    #000 6px,
+                    #555 6px,
+                    #555 12px);
+            left: 0;
+        }
+
+        .frame::before {
+            top: -20px;
+        }
+
+        .frame::after {
+            bottom: -20px;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .intro p {
+            background: #222;
+            color: white;
+            padding: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+            text-align: left;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Building a website to document my life in Auz</h1>
+    </header>
+
+    <div class="intro">
+        <p>
+            This is my documenting and analysis of the building of this website. It can also be used to follow what I created each week 
+        </p>
+
+    </div>
+
+    <!-- Week selector -->
+    <div class="week-nav">
+        <button class="week-btn" onclick="openWeek(1)">Week 1</button>
+        <button class="week-btn" onclick="openWeek(2)">Week 2</button>
+        <button class="week-btn" onclick="openWeek(3)">Week 3</button>
+        <button class="week-btn" onclick="openWeek(4)">Week 4</button>
+        <button class="week-btn" onclick="openWeek(5)">Week 5</button>
+        <button class="week-btn" onclick="openWeek(6)">Week 6</button>
+        <button class="week-btn" onclick="openWeek(7)">Week 7</button>
+        <button class="week-btn" onclick="openWeek(8)">Week 8</button>
+        <button class="week-btn" onclick="openWeek(9)">Week 9</button>
+        <button class="week-btn" onclick="openWeek(10)">Week 10</button>
+        <button class="week-btn" onclick="openWeek(11)">Week 11</button>
+        <button class="week-btn" onclick="openWeek(12)">Week 12</button>
+    </div>
+
+    <!-- Carousels for each week -->
+    <div id="carousels">
+        <!-- Generated 12 empty carousels as placeholders -->
+        <!-- Replace placeholder images with your own -->
+
+        <!-- Example template: -->
+        <!-- Week 1 -->
+        <div id="week1" class="carousel-container">
+            <div class="carousel">
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+1"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+2"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+3"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+1"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+2"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+3"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+1"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+2"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+3"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+1"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+2"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+3"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+1"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+2"></div>
+                <div class="frame"><img src="https://placehold.co/400x250?text=Week+1+Image+3"></div>
+            </div>
+        </div>
+
+        <!-- Week 2 → 12 (placeholders identical structure) -->
+        <!-- You can duplicate and change placeholder text/images -->
+        <script>
+            for (let w = 2; w <= 12; w++) {
+                const div = document.createElement('div');
+                div.id = `week${w}`;
+                div.className = "carousel-container";
+                div.innerHTML = `
+          <div class="carousel">
+            <div class="frame"><img src="https://placehold.co/400x250?text=Week+${w}+Image+1"></div>
+            <div class="frame"><img src="https://placehold.co/400x250?text=Week+${w}+Image+2"></div>
+            <div class="frame"><img src="https://placehold.co/400x250?text=Week+${w}+Image+3"></div>
+          </div>
+        `;
+                document.getElementById('carousels').appendChild(div);
+            }
+        </script>
+    </div>
+
+    <button id="closeBtn" class="close-btn" onclick="closeCarousels()">Close</button>
+
+    <script>
+        function openWeek(weekNumber) {
+            document.querySelectorAll('.carousel-container').forEach(car => car.style.display = 'none');
+            document.getElementById(`week${weekNumber}`).style.display = 'flex';
+            document.getElementById('closeBtn').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeCarousels() {
+            document.querySelectorAll('.carousel-container').forEach(car => car.style.display = 'none');
+            document.getElementById('closeBtn').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

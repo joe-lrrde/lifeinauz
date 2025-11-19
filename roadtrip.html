@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <html lang="en">
+    <meta charset="UTF-8">
+    <title>Playlist</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../website/style/style_roadTrip.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div id="img-container">
+        <img src="../website/pics/playlist.png" alt="van" id="playlistIMG">
+    </div>
+
+    <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+        <defs>
+        </defs>
+        <path fill="#e0c6ff" class="out-top"
+            d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />
+        <path fill="#fbffba" class="in-top"
+            d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z" />
+        <path fill="#9bffb9" class="out-bottom"
+            d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z" />
+        <path fill="#ffceeb" class="in-bottom"
+            d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z" />
+    </svg>
+
+
+
+    <h1>
+        ROADTRIP
+    </h1>
+    <div id="playlist-back">
+        <div class="icons">
+            <div class="input-container">
+                <input type="text" name="text" class="input" id="searchInput" placeholder="Song Title / Artist">
+                <img src="../website/pics/icons/search.png" alt="search" id="searchIcon" class="icon-img">
+            </div>
+            <img src="../website/pics/icons/share.png" alt="share" id="share">
+            <img src="../website/pics/icons/dowload.png" alt="download" id="download">
+            <img src="../website/pics/icons/shuffle.png" alt="shuffle" id="shuffle">
+                        <button id="resetSearch">Reset</button>
+        </div>
+
+        <div class="song">
+            <p class="zicTitle">Witches</p>
+            <p class="zicos">Alice Phoebe Lou</p>
+        </div>
+
+        <div class="song">
+            <a href="https://www.youtube.com/watch?v=m2uTFF_3MaA"><p class="zicTitle">Yellow Submarine</p></a>
+            <p class="zicos">The Beatles</p>
+        </div>
+
+        <div class="song">
+            <p class="zicTitle">Bohemian Rhapsody</p>
+            <p class="zicos">Queen</p>
+        </div>
+
+        <div class="song">
+            <p class="zicTitle">We Will Rock You</p>
+            <p class="zicos">Queen</p>
+        </div>
+
+        <div id="addSongForm">
+            <input type="text" id="newTitle" placeholder="Song title">
+            <input type="text" id="newArtist" placeholder="Artist">
+            <button id="addSongBtn">Add Song</button>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script src="../website/script/playlistScript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+</html>

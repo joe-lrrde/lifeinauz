@@ -1,0 +1,427 @@
+@font-face {
+    font-family: MyFont;
+    src: url(../website/fonts/Eng04-Regular.ttf);
+}
+
+h1 {
+    display: inline;
+    font-family: MyFont;
+    font-size: 500%;
+}
+
+.Title {
+    display: block;
+    text-align: center;
+}
+
+p {
+    font-family: MyFont;
+}
+
+#title {
+    font-family: MyFont;
+}
+
+.intro {
+    display: inline-block;
+    text-align: justify;
+    margin-left: 8%;
+    margin-right: 10%;
+}
+
+h2 {
+    display: inline-block;
+    font-family: MyFont;
+    font-size: 190%;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 0%;
+}
+
+.MyPoem {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 0%;
+}
+
+input::placeholder {
+    font-family: MyFont;
+    color: rgba(0, 0, 0, 0.584);
+}
+
+input {
+    font-family: MyFont;
+    font-size: 100%;
+}
+
+/* Input field */
+.input-field {
+    font-family: MyFont;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.584);
+    outline: none;
+    background-color: transparent;
+}
+
+/* When the user has typed something (placeholder is no longer shown) */
+.input-field:not(:placeholder-shown) {
+    border-bottom: none;
+}
+
+.sentence {
+    margin-bottom: -7px;
+    margin-top: 0%;
+}
+
+#point {
+    margin-left: 5%;
+}
+
+body {
+    background-image: url(../pics/poetry_background.png);
+    background-size: cover;
+    /* cover the entire container */
+    background-repeat: no-repeat;
+    /* don't repeat */
+    margin: 0;
+    background-attachment: fixed;
+    min-height: 100vh;
+    /* ensures it fills at least the viewport */
+}
+
+#btn_erase {
+    font-family: MyFont;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+    margin-right: 10%;
+}
+
+#btn_erase:hover {
+    border-left: 2px solid rgba(44, 44, 44, 0.683);
+    border-bottom: 2px solid rgba(158, 150, 150, 0.601);
+    border-radius: 35%;
+    background-color: rgba(250, 252, 255, 0.701);
+}
+
+#btn_post {
+    font-family: MyFont;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+
+#btn_post:hover {
+    border: 2px solid rgba(43, 43, 43, 0.736);
+    border-radius: 10%;
+    background-color: black;
+    color: beige;
+}
+
+
+.post_erase {
+    margin-left: 20%;
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+    background: #edebeb;
+    padding: 5%;
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(35, 35, 35, 0.498);
+    text-align: left;
+    font-size: 35px;
+    animation: backInLeft;
+    animation-duration: 0.75s;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#download {
+    font-family: MyFont;
+    border-left: 2px solid rgba(44, 44, 44, 0.683);
+    border-bottom: 2px solid rgba(158, 150, 150, 0.601);
+    border-radius: 35%;
+    background-color: rgba(250, 252, 255, 0.701);
+    font-size: 55%;
+}
+
+#download:hover {
+    border-top: 4px solid rgba(44, 44, 44, 0.683);
+    border-left: 4px solid rgba(44, 44, 44, 0.683);
+}
+
+#saveGallery {
+    font-family: MyFont;
+    font-size: 55%;
+    background-color: #f9fafcd8;
+    border: 1px #e7f1ff solid;
+    border-right: solid #19212e;
+    border-left: solid #19212e;
+    border-radius: 5%;
+}
+
+#saveGallery:hover {
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+    border-left: none;
+}
+
+#keepPrivate {
+    font-family: MyFont;
+    font-size: 55%;
+    border-radius: 60%;
+    background-color: white;
+}
+
+@keyframes fade {
+    0% {
+        color: rgb(0, 0, 0);
+    }
+
+    25% {
+        color: rgba(0, 0, 0, 0.703);
+    }
+
+    50% {
+        color: rgba(0, 0, 0, 0.355);
+    }
+
+    100% {
+        color: transparent;
+    }
+
+}
+
+#keepPrivate:hover {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+
+/* Gallery Cards */
+.poemCard {
+    display: inline-block;
+    border: transparent;
+    padding: 12px;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: #efe6e6;
+    position: relative;
+}
+
+.poemCard button.deletePoem {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+#poemGallery {
+    margin-left: 10%;
+}
+
+.map-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.map-image {
+    width: 100%;
+    border-radius: 12px;
+}
+
+
+.book:hover .cover {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(-90deg);
+    -ms-transform: rotatey(-90deg);
+    transform: rotatey(-90deg);
+}
+
+.myPoetry {
+    margin-left: 10%;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+img,
+.book {
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.map-marker {
+    position: absolute;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    user-select: none;
+}
+
+.map-card {
+    position: fixed;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    max-width: 92%;
+    max-height: 84%;
+    overflow: auto;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, .25);
+    z-index: 1000;
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 26px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.book {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.book img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    transition: transform .18s ease;
+}
+
+.book img:hover {
+    transform: scale(1.04);
+}
+
+.cover {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.28);
+    color: white;
+    opacity: 0;
+    transition: opacity 3s;
+}
+
+.book:hover .cover {
+    opacity: 1;
+
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.86);
+    z-index: 2000;
+}
+
+.lightbox img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .6);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    transition: opacity 0.2s;
+    opacity: 0.7;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+}
+
+.nav-arrow.left {
+    left: 40px;
+}
+
+.nav-arrow.right {
+    right: 40px;
+}
+
+.info {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+}

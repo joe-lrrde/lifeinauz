@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<head>
+    <html lang="en">
+    <meta charset="UTF-8">
+    <title>Poetry</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../website/style/style_poetry.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../website/script/poetry_script.js"></script>
+
+    <style>
+        @font-face {
+            font-family: MyFont;
+            src: url(../website/fonts/Eng04-Regular.ttf);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+
+<body>
+
+    <div class="Title">
+        <h1>Poetry</h1>
+    </div>
+    <div class="intro">
+        <p class="sentence">For as long as I can remember I have been writing. </p><br>
+        <p class="sentence">Ironically I wrote not because I had an overflowing imagination but because I simply wanted
+            to put words on paper. </p><br>
+        <p class="sentence">So I would write the same stories over and over again. And the more I grew the less I was
+            able to finish them. </p><br>
+        <p class="sentence"> I think this is why I turned into poetry. It's harder to start a poem than it is finishing
+            it. </p><br>
+        <p class="sentence">Even if you write 3 lines, you can call it a poem. There are no rules to poetry. Because
+            there are as many different
+            types of poetry as there are writers. Poets. </p><br>
+        <p class="sentence">I don't like that poetry is this art seen as copmlicated and untouchable. Don't get me
+            wrong, I strongly believe that
+            writing good poetry is one of the hardest things to do. But at the end of the day it just takes practice.
+        </p><br>
+        <p class="sentence">And what's more important is that you don't need to be a poet to enjoy poetry. Or rather,
+            you're a poet even if you don't
+            think you are. So read poetry. Don't shut the door to it. And if you don't like a poem, change poets. </p>
+        <br>
+        <p class="sentence">Because I guarantee you will find poetry to your taste. </p><br><br>
+        <p class="sentence" id="point">Now to prove my point, write a poem with me : </p><br>
+    </div>
+
+    <div class="MyPoem">
+        <form id="poemForm">
+            <h2><input id="title" type="text" placeholder="[Title]" class="input-field"></h2>
+            <p>
+                My name is <input id="name" placeholder="[your name]" class="input-field" type="text"> <br>
+                Today I feel like
+                <input id="adj" type="text" class="input-field" placeholder="[a(n) adjective]">
+                <input id="noun1" type="text" class="input-field" placeholder="[noun]">
+                <input id="verb" type="text" class="input-field" placeholder="[verb]-ing"> in the
+                <input id="noun2" type="text" class="input-field" placeholder="[noun]">
+                <br>
+                Sometimes I am <input id="noun3" type="text" class="input-field" placeholder="[a(n) noun]"> <br>
+                Sometimes I am <input id="noun4" type="text" class="input-field" placeholder="[a(n) noun]"> <br>
+                But always I am <input id="adjective" type="text" class="input-field" placeholder="[adjective]"> <br>
+                I ask the world : " <input id="question" type="text" class="input-field" placeholder="[question]"> "
+                <br>
+                And the answer is : <span id="line2"></span>
+            </p>
+
+            <div class="post_erase">
+                <button type="reset" id="btn_erase">Erase</button>
+                <button type="submit" id="btn_post">Preview</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Modal for Preview -->
+    <div id="poemPreview" class="modal">
+        <div class="modal-content">
+            <span id="closePreview" class="close">&times;</span>
+            <h2 id="previewTitle"></h2>
+            <p id="previewContent"></p>
+            <div class="modal-actions">
+                <button id="download">Dowload</button>
+                <button id="saveGallery">Post to Gallery</button>
+                <button id="keepPrivate">Keep to Myself</button>
+            </div>
+        </div>
+    </div>
+    <div class="intro">
+        <p>
+            See ! This is your poem. Now you can practice with this structure, but never forget,
+            rules exist as long as they are <b>useful</b>.
+            This structure is meant to be changed and played with :)
+        </p>
+    </div>
+    <div id="poemGallery">
+        <h2>Poem Gallery</h2>
+        <div id="galleryContainer"></div>
+    </div>
+
+    <div class="intro">
+        <h2>My Poetry</h2>
+        <p>
+            This is a sneak peak to some of my poetry. It is geographically ordered because environment influences
+            experiences
+            and I write mostly from what I experience.
+
+        </p>
+    </div>
+
+
+    <div class="map-container">
+        <img src="../website/pics/map.png" class="map-image" id="planisphere" alt="map">
+
+        <!-- Clickable regions -->
+        <div class="map-marker" style="top: 25%; left: 45%;" data-region="London">x</div>
+        <div class="map-marker" style="top: 28%; left: 48%;" data-region="Cesson-Sévigné">x</div>
+        <div class="map-marker" style="top: 70%; left: 90%;" data-region="Adelaide">x</div>
+    </div>
+
+    <!-- Main Card -->
+    <div id="mapCard" class="map-card" style="display:none;">
+        <span id="closeCardBtn" class="close" title="Close">&times;</span>
+        <h3 id="cardTitle"></h3>
+        <div id="cardContent" class="book-container"></div>
+    </div>
+
+    <!-- ✅ Single Lightbox (with arrows) -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <span id="closeLightbox" class="close" title="Close">&times;</span>
+        <span id="prevBtn" class="nav-arrow left">&#10094;</span>
+        <img id="lightboxImg" src="" alt="Expanded poem">
+        <span id="nextBtn" class="nav-arrow right">&#10095;</span>
+    </div>
+</body>
+
+
+</html>

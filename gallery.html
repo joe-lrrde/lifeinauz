@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastel Gallery</title>
+  <link rel="stylesheet" href="../website/style/S-art-gallery.css" />
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>Art Work</h1>
+    <br>
+    <p class="subtitle">I have been trying to improve my work with pastels these past couple of months, and here is some
+      of the work I have done. <br>
+      Otherwise I really like collages and creating layers to the work. <br>
+      (This is not very full, I am working on documenting - and making - art more consitently)</p>
+  </header>
+
+  <section class="gallery">
+    <div class="art-piece">
+      <img src="../website/pics/art/RobinHoodAndJohn.jpg" alt="Robin Hood and Little John"
+        data-title="Robin Hood and Little John walking through the forrest."
+        data-description="Characters from the 1973 Disney Robin Hood movie. Made with pastels in October 2025."
+        onclick="openLightbox(this)">
+    </div>
+    <div class="art-piece">
+      <img src="../website/pics/art/wine.jpg" alt="Wine glass" data-title="Wine glass"
+        data-description="Pourring red wine into a glass. Made with pastels in November 2025."
+        onclick="openLightbox(this)">
+    </div>
+    <div class="art-piece">
+      <img src="../website/pics/art/bdayCard.jpg" alt="Dinosaur Birthday card" data-title="Happy Birthday !"
+        data-description="Birthday card I made for one of my friend in Europe. Inspired by one I saw in a shop, I carved out the tree and dinosaur drawing and then glued it onto the paper. "
+        onclick="openLightbox(this)">
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+      <img id="lightbox-img">
+      <div class="lightbox-text-block">
+        <h2 id="lightbox-title"></h2>
+        <p id="lightbox-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <h1>Your turn !</h1>
+    <br>
+    <p class="subtitle"> Relax and have fun :)</p>
+  </header>
+  <div class="canva">
+    <canvas id="pixelCanvas" width="690" height="690"></canvas>
+    <div class="controls">
+      <span>Pixel size : </span>
+      <div class="add">
+        <button id="biggerPixel">+</button>
+        <button id="smallerPixel">-</button>
+      </div>
+      <button id="toggleEphemere">Ephemere: OFF</button>
+      <button id="eraser">Eraser: OFF</button>
+
+      <div class="palette">
+        <span>Palettes : </span>
+        <button id="fullRandom">Full Random: OFF</button>
+        <span>Or choose your color palette : </span>
+        <div class="palette-swatch" data-palette="0" id="water">
+          <div class="color-box" style="background:#c6eaf9"></div>
+          <div class="color-box" style="background:#b7a9f7"></div>
+          <div class="color-box" style="background:#b9e0e5"></div>
+          <div class="color-box" style="background:#52bfd0"></div>
+          <div class="color-box" style="background:#e5c8f7"></div>
+        </div>
+        <div class="palette-swatch" data-palette="1" id="fire">
+          <div class="color-box" style="background:#de5458"></div>
+          <div class="color-box" style="background:#c16d24"></div>
+          <div class="color-box" style="background:#fafad2"></div>
+          <div class="color-box" style="background:#9c5b45"></div>
+          <div class="color-box" style="background:#dddda0"></div>
+        </div>
+        <div class="palette-swatch" data-palette="2" id="forrest">
+          <div class="color-box" style="background:#81dd79"></div>
+          <div class="color-box" style="background:#2ebd7f"></div>
+          <div class="color-box" style="background:#37c841"></div>
+          <div class="color-box" style="background:#496a3d"></div>
+          <div class="color-box" style="background:#0e350c"></div>
+        </div>
+        <!-- Add more palettes as needed -->
+      </div>
+    </div>
+
+
+
+    <script src="../website/script/js-art-gallery.js"></script>
+</body>
+
+</html>

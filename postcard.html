@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Postcard Maker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../website/style/S-postcard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <div class="intro">
+        <p>
+            Moving halfway accross the world meant leaving friends and family behind. But that doesn't mean letting them
+            go or
+            abandoning them entirely ! And though phones are a great way to stay in touch, I found sending letters and
+            postcards
+            much more personal and nice.
+        </p>
+
+    </div>
+
+    <div class="postcard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <p>Drag your icons in ! </p>
+            <img src="../website/pics/cursor/van.png" class="draggable-icon" draggable="true" alt="van">
+            <img src="../website/icons/heart.png" class="draggable-icon" draggable="true" alt="heart">
+            <img src="../website/icons/sun.png" class="draggable-icon" draggable="true" alt="sun">
+        </div>
+
+        <!-- Postcard canvas -->
+        <div class="canvas-container" id="postcardCanvas">
+            <canvas id="drawCanvas"></canvas>
+            <textarea id="message" placeholder="Write your message here..."></textarea>
+            <canvas id="backgroundCanvas"></canvas>
+        </div>
+
+    </div>
+    </div>
+
+
+    <!-- Controls -->
+    <div class="postcard-controls">
+        <button id="penBtn">Pen</button>
+        <button id="eraserBtn">Eraser</button>
+        <div class="slider-wrapper">
+            <label for="penSize">Pen size:</label>
+            <input type="range" id="penSize" min="1" max="20" value="3">
+            <div id="thumb" class="slider-thumb"></div>
+        </div>
+
+        <label>Pen color : <input type="color" id="penColor" value="#ffffff"></label>
+        <label>Background color : <input type="color" id="bgColor" value="#ffffff"></label>
+        <button id="startOverBtn">Start Over</button>
+        <button id="downloadBtn">Download</button>
+    </div>
+
+
+    <script src="../website/script/js-postcard.js"></script>
+</body>
+
+</html>
