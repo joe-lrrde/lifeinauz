@@ -119,24 +119,24 @@ And the answer is : ${finalLine}. <br>
 document.addEventListener('DOMContentLoaded', () => {
     const regionPoems = {
         "London": [
-            { title: "34", img: "../website/pics/poems/34.png" },
-            { title: "6 Word Memoirs", img: "../website/pics/poems/6-word-memoirs.png" },
-            { title: "Bloody Feet", img: "../website/pics/poems/bloody-feet.png"},
-            { title: "In the Slaughterhouse", img: "../website/pics/poems/slaughterhouse.png" },
-            { title: "Poem 5", img: "../website/pics/poems/12.png" }
+            { title: "34", img: "../lifeinauz/pics/poems/34.png" },
+            { title: "6 Word Memoirs", img: "../lifeinauz/pics/poems/6-word-memoirs.png" },
+            { title: "Bloody Feet", img: "../lifeinauz/pics/poems/bloody-feet.png"},
+            { title: "In the Slaughterhouse", img: "../lifeinauz/pics/poems/slaughterhouse.png" },
+            { title: "Poem 5", img: "../lifeinauz/pics/poems/12.png" }
         ],
         "Cesson-Sévigné": [
-            { title: "Desert Winds", img: "../website/pics/poems/14.png" },
-            { title: "Golden Sands", img: "../website/pics/poems/15.png" },
-            { title: "Silent Dunes", img: "../website/pics/poems/17.png" }
+            { title: "Desert Winds", img: "../lifeinauz/pics/poems/14.png" },
+            { title: "Golden Sands", img: "../lifeinauz/pics/poems/15.png" },
+            { title: "Silent Dunes", img: "../lifeinauz/pics/poems/17.png" }
         ],
         "Adelaide": [
-            { title: "Ocean’s Whisper", img: "../website/pics/poems/20.png" },
-            { title: "Tide Dreams", img: "../website/pics/poems/21.png" },
-            { title: "Deep Blue", img: "../website/pics/poems/22.png" },
-            { title: "Sea Song", img: "../website/pics/poems/23.png" },
-            { title: "Coral Heart", img: "../website/pics/poems/24.png" },
-            { title: "Driftwood", img: "../website/pics/poems/25.png" }
+            { title: "Ocean’s Whisper", img: "../lifeinauz/pics/poems/20.png" },
+            { title: "Tide Dreams", img: "../lifeinauz/pics/poems/21.png" },
+            { title: "Deep Blue", img: "../lifeinauz/pics/poems/22.png" },
+            { title: "Sea Song", img: "../lifeinauz/pics/poems/23.png" },
+            { title: "Coral Heart", img: "../lifeinauz/pics/poems/24.png" },
+            { title: "Driftwood", img: "../lifeinauz/pics/poems/25.png" }
         ]
     };
 
