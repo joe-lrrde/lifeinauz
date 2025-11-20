@@ -14,9 +14,30 @@ body {
     background-color: rgb(248, 233, 212);
 }
 
-.recipes {
+#tomato {
     background: rgb(206, 213, 158);
 
+}
+
+#crepe {
+    background: rgb(226, 230, 204);
+
+}
+
+#R-B {
+    background: rgb(109, 96, 78);
+}
+
+#puree {
+     background: rgb(235, 225, 136);
+}
+
+#samon {
+    background: rgb(234, 159, 177);
+}
+
+#quiche {
+    background: rgb(221, 184, 133);
 }
 
 h1 {
@@ -106,7 +127,7 @@ li {
     margin: 40px auto;
     background: rgba(255, 255, 255, 0.409);
     border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .ingredient-list {
@@ -118,20 +139,24 @@ li {
 }
 
 .ingredient-list li {
-    margin: 12px 0; /* spacing between items */
+    margin: 12px 0;
+    /* spacing between items */
 }
 
 .ingredient-list label {
     display: flex;
-    align-items: center; /* align checkbox + text */
-    gap: 12px; /* space between checkbox and text */
+    align-items: center;
+    /* align checkbox + text */
+    gap: 12px;
+    /* space between checkbox and text */
     cursor: pointer;
 }
 
 .ingredient-list input[type="checkbox"] {
     width: 24px;
     height: 24px;
-    accent-color: rgb(209, 130, 34); /* color of the tick */
+    accent-color: rgb(209, 130, 34);
+    /* color of the tick */
     cursor: pointer;
 }
 
@@ -141,34 +166,42 @@ li {
     width: 80%;
     margin: 40px auto;
 }
+
 .tooltip {
     position: relative;
     display: inline-block;
     cursor: help;
-    color: rgb(209, 130, 34); /* optional highlight */
+    color: rgb(209, 130, 34);
+    /* optional highlight */
     font-weight: bold;
 }
 
 .tooltip-text {
     visibility: hidden;
     opacity: 0;
-    width: 350px;                  /* smaller tooltip width */
-    font-size: 20px;               /* smaller font */
+    width: 350px;
+    /* smaller tooltip width */
+    font-size: 20px;
+    /* smaller font */
     background-color: white;
     color: black;
     text-align: left;
-    padding: 6px 10px;             /* smaller padding */
+    padding: 6px 10px;
+    /* smaller padding */
     border-radius: 6px;
     border: 1px dashed rgba(209, 130, 34, 0.7);
 
     /* Tooltip position above-right */
     position: absolute;
     z-index: 10;
-    top: -10px;                     /* start slightly above */
-    left: 105%;                     /* shift to the right of the word */
-    
+    top: -10px;
+    /* start slightly above */
+    left: 105%;
+    /* shift to the right of the word */
+
     transition: opacity 0.25s ease-in-out, visibility 0.25s;
-    white-space: normal;             /* allow wrapping */
+    white-space: normal;
+    /* allow wrapping */
 }
 
 .tooltip:hover .tooltip-text {

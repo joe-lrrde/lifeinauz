@@ -119,24 +119,26 @@ And the answer is : ${finalLine}. <br>
 document.addEventListener('DOMContentLoaded', () => {
     const regionPoems = {
         "London": [
-            { title: "34", img: "../lifeinauz/pics/poems/34.png" },
-            { title: "6 Word Memoirs", img: "../lifeinauz/pics/poems/6-word-memoirs.png" },
-            { title: "Bloody Feet", img: "../lifeinauz/pics/poems/bloody-feet.png"},
-            { title: "In the Slaughterhouse", img: "../lifeinauz/pics/poems/slaughterhouse.png" },
-            { title: "Poem 5", img: "../lifeinauz/pics/poems/12.png" }
+            { title: "L'Amoureux", img: "../lifeinauz/pics/poems/uk/amoureux.png" },
+            { title: "6 Word Memoirs", img: "../lifeinauz/pics/poems/uk/memoir.png" },
+            { title: "Bloody Feet", img: "../lifeinauz/pics/poems/uk/bloodyfeet.png" },
+            { title: "In the Slaughterhouse", img: "../lifeinauz/pics/poems/uk/slaughterhouse.png" },
+            { title: "It was supposed to be butterflies", img: "../lifeinauz/pics/poems/uk/butterflies.png" },
+            { title: "Untitled", img: "../lifeinauz/pics/poems/uk/carcass.png" },
+            { title: "Les tartines chaudes", img: "../lifeinauz/pics/poems/uk/les-tartines.png" },
+            { title: "Lovestuck", img: "../lifeinauz/pics/poems/uk/lovestuck.png" }
         ],
         "Cesson-Sévigné": [
-            { title: "Desert Winds", img: "../lifeinauz/pics/poems/14.png" },
-            { title: "Golden Sands", img: "../lifeinauz/pics/poems/15.png" },
-            { title: "Silent Dunes", img: "../lifeinauz/pics/poems/17.png" }
+            { title: "Chez Guy et Marie", img: "../lifeinauz/pics/poems/fr/guyetmarie.png" },
+            { title: "M pour manque", img: "../lifeinauz/pics/poems/fr/moman.png" }
         ],
         "Adelaide": [
-            { title: "Ocean’s Whisper", img: "../lifeinauz/pics/poems/20.png" },
-            { title: "Tide Dreams", img: "../lifeinauz/pics/poems/21.png" },
-            { title: "Deep Blue", img: "../lifeinauz/pics/poems/22.png" },
-            { title: "Sea Song", img: "../lifeinauz/pics/poems/23.png" },
-            { title: "Coral Heart", img: "../lifeinauz/pics/poems/24.png" },
-            { title: "Driftwood", img: "../lifeinauz/pics/poems/25.png" }
+            { title: "About a body", img: "../lifeinauz/pics/poems/auz/body.png" },
+            { title: "Untitled", img: "../lifeinauz/pics/poems/auz/gawd.png" },
+            { title: "Untitled", img: "../lifeinauz/pics/poems/auz/home.png" },
+            { title: "Untitled", img: "../lifeinauz/pics/poems/auz/potions.png" },
+            { title: "18/08/2025", img: "../lifeinauz/pics/poems/auz/18.png" },
+            { title: "19/11/2025", img: "../lifeinauz/pics/poems/auz/19.png" }
         ]
     };
 
