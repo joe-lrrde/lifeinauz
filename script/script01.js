@@ -30,9 +30,17 @@ $(document).ready(function () {
 function goToRandomPage() {
   // Define an array of your website's page URLs
   const pages = [
-    "../website/chronological.html",
-    "../website/thematic.html",
-    "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    "../lifeinauz/gallery",
+    "../lifeinauz/photography",
+    "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "../lifeinauz/poetry",
+    "../lifeinauz/roadtrip",
+    "../lifeinauz/recipes/crepes",
+    "../lifeinauz/recipes/puree",
+    "../lifeinauz/recipes/quiche",
+    "../lifeinauz/recipes/R&B",
+    "../lifeinauz/recipes/samon",
+    "../lifeinauz/recipes/tomatoes",
   ];
   // Generate a random index within the array's bounds
   const randomIndex = Math.floor(Math.random() * pages.length);
